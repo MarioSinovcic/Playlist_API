@@ -1,0 +1,59 @@
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/bin/Debug/net5.0/appsettings.Development.json
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/bin/Debug/net5.0/appsettings.json
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/bin/Debug/net5.0/Playlist_API.deps.json
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/bin/Debug/net5.0/Playlist_API.runtimeconfig.json
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/bin/Debug/net5.0/Playlist_API.runtimeconfig.dev.json
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/bin/Debug/net5.0/Playlist_API.dll
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/bin/Debug/net5.0/ref/Playlist_API.dll
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/bin/Debug/net5.0/Playlist_API.pdb
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/bin/Debug/net5.0/Microsoft.OpenApi.dll
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/bin/Debug/net5.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.csprojAssemblyReference.cache
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.AssemblyInfoInputs.cache
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.AssemblyInfo.cs
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.csproj.CoreCompileInputs.cache
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.MvcApplicationPartsAssemblyInfo.cs
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.MvcApplicationPartsAssemblyInfo.cache
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/staticwebassets/Playlist_API.StaticWebAssets.Manifest.cache
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/staticwebassets/Playlist_API.StaticWebAssets.xml
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/scopedcss/bundle/Playlist_API.styles.css
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.RazorTargetAssemblyInfo.cache
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.csproj.CopyComplete
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.dll
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/ref/Playlist_API.dll
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.pdb
+/Users/mario.sinovcic/Projects/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.genruntimeconfig.cache
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Playlist_API.deps.json
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Playlist_API.runtimeconfig.json
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Playlist_API.runtimeconfig.dev.json
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Playlist_API.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/ref/Playlist_API.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Playlist_API.pdb
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Microsoft.OpenApi.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Playlist_Service.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Playlist_Service.pdb
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.csprojAssemblyReference.cache
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.AssemblyInfoInputs.cache
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.AssemblyInfo.cs
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.csproj.CoreCompileInputs.cache
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.MvcApplicationPartsAssemblyInfo.cs
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.MvcApplicationPartsAssemblyInfo.cache
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/staticwebassets/Playlist_API.StaticWebAssets.Manifest.cache
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/staticwebassets/Playlist_API.StaticWebAssets.xml
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/scopedcss/bundle/Playlist_API.styles.css
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.RazorTargetAssemblyInfo.cache
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.csproj.CopyComplete
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/ref/Playlist_API.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.pdb
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/obj/Debug/net5.0/Playlist_API.genruntimeconfig.cache
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Properties/appsettings.Development.json
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Properties/appsettings.json
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Newtonsoft.Json.dll

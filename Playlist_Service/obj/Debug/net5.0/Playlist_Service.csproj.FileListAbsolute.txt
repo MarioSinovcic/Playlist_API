@@ -10,3 +10,6 @@
 /Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_Service/obj/Debug/net5.0/Playlist_Service.dll
 /Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_Service/obj/Debug/net5.0/ref/Playlist_Service.dll
 /Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_Service/obj/Debug/net5.0/Playlist_Service.pdb
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_Service/bin/Debug/net5.0/Playlist_Service.runtimeconfig.json
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_Service/bin/Debug/net5.0/Playlist_Service.runtimeconfig.dev.json
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_Service/obj/Debug/net5.0/Playlist_Service.genruntimeconfig.cache

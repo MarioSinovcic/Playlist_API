@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Playlist_Service\Playlist_Service.csproj" />
+      <ProjectReference Include="..\Playlist_API\Playlist_API.csproj" />
     </ItemGroup>
 
 </Project>

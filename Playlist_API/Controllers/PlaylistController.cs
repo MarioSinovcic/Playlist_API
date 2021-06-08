@@ -1,16 +1,20 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Playlist_API.Database;
 using Playlist_Service;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Playlist_API.Controllers
 {
     [ApiController]
-    public class PlaylistController : ControllerBase
+    public class PlaylistController : Controller
     {
-        private readonly IDatabase _database = new LocalDatabase();
+        private readonly IDatabase _database;
+        public PlaylistController(IDatabase database)
+        {
+            _database = database;
+        }
 
         [HttpPut]
         [Route("playlists")]
@@ -44,7 +48,7 @@ namespace Playlist_API.Controllers
 
         [HttpGet]
         [Route("playlists")]
-        public IActionResult GetPlaylists()
+        public async Task<IActionResult> GetPlaylists()
         {
             try
             {

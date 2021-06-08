@@ -57,3 +57,10 @@
 /Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Properties/appsettings.Development.json
 /Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Properties/appsettings.json
 /Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/Newtonsoft.Json.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/RestSharp.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/SpotifyWebApi.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/SpotifyAPI.Web.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/xunit.abstractions.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/xunit.assert.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/xunit.core.dll
+/Users/mario.sinovcic/Documents/Acceleration/Phase 2/Playlist_API/Playlist_API/bin/Debug/net5.0/xunit.execution.dotnet.dll

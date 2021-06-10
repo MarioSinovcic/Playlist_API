@@ -6,7 +6,13 @@
     <content url="file://$USER_HOME$/.nuget/packages/nunit3testadapter/3.16.1/build/netcoreapp2.1/NUnit3.TestAdapter.pdb" />
     <content url="file://$USER_HOME$/.nuget/packages/nunit3testadapter/3.16.1/build/netcoreapp2.1/nunit.engine.api.dll" />
     <content url="file://$USER_HOME$/.nuget/packages/nunit3testadapter/3.16.1/build/netcoreapp2.1/nunit.engine.dll" />
-    <content url="file://$MODULE_DIR$/../.." />
+    <content url="file://$MODULE_DIR$/../..">
+      <excludeFolder url="file://$MODULE_DIR$/../../Playlist_API_Tests/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../Playlist_API_Tests/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../Playlist_Service_Tests/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../Playlist_Service_Tests/obj/Debug/net5.0/ref" />
+      <excludeFolder url="file://$MODULE_DIR$/../../TestProject1" />
+    </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

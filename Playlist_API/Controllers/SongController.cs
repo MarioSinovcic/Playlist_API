@@ -1,56 +1,46 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Playlist_API.Behaviours;
 using SpotifyAPI.Web;
-using SpotifyWebApi.Auth;
 
 namespace Playlist_API.Controllers
 {
     [ApiController]
     public class SongController : ControllerBase
     {
-        private static string clientID = "cc67f1c071694b3eabbf884144c558fe";
-        private static string clientSecret = "1330ca78d28844cea66c08c61cbeb1ae";
-        
+        private SpotifyClient _spotifyClient;
+
         [HttpGet]
         [Route("songs")]
-        public async Task<IActionResult> GetSongs()
+        public async Task<IActionResult> GetSong([FromQuery(Name = "name")] string name)
         {
             try
             {
-                var token = ClientCredentials.GetToken(new AuthParameters
-                {
-                    ClientId = clientID,
-                    ClientSecret = clientSecret,
-                });
-                var spotify = new SpotifyClient(token.AccessToken);
-                var track = await spotify.Browse.GetCategories();
-                return Ok(track);
+                _spotifyClient = TokenBehaviour.RetrieveToken();
             }
             catch (Exception)
             {
-                return StatusCode(500);
+                return StatusCode(503, "Error obtaining Spotify credentials.");
             }
-        }
-        
-        [HttpGet]
-        [Route("songs/{name}")]
-        public async Task<IActionResult> GetSongs(string name)
-        {
+
             try
             {
-                var token = ClientCredentials.GetToken(new AuthParameters
+                if (String.IsNullOrEmpty(name))
                 {
-                    ClientId = clientID,
-                    ClientSecret = clientSecret,
-                });
-                var spotify = new SpotifyClient(token.AccessToken);
-                var request = new SearchRequest(SearchRequest.Types.Track, name);
-                var track = await spotify.Search.Item(request);
-                return Ok(track.Tracks);
+                    var track = await _spotifyClient.Browse.GetCategories();
+                    return Ok(track);
+                }
+                else
+                {
+                    var request = new SearchRequest(SearchRequest.Types.Track, name);
+                    var track = await _spotifyClient.Search.Item(request);
+                    return Ok(track.Tracks);
+                }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                //ErrorChecker.Check(e)
                 return StatusCode(500);
             }
         }

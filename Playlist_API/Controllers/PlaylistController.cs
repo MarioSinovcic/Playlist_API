@@ -53,10 +53,8 @@ namespace Playlist_API.Controllers
             try
             {
                 var playlists = _database.GetPlaylists();
-                if (playlists.Count == 0)
-                {
-                    return NotFound();
-                }
+                if (playlists.Count == 0) return NotFound("No playlists have been made yet.");
+                
                 return Ok(JsonConvert.SerializeObject(playlists));
             }
             catch (Exception)

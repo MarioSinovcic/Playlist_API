@@ -3,6 +3,8 @@ WORKDIR /app
 
 COPY Playlist_API/*.csproj ./Playlist_API/
 COPY Playlist_Service/*.csproj ./Playlist_Service/
+COPY Playlist_Service_Tests/*.csproj ./Playlist_Service_Tests/
+COPY Playlist_API_Tests/*.csproj ./Playlist_API_Tests/
 COPY *.sln ./
 RUN dotnet restore
 

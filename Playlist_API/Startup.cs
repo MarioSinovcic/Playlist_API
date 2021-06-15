@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Playlist_API.Behaviours.Spotify;
 using Playlist_API.Database;
 
 namespace Playlist_API
@@ -21,6 +22,7 @@ namespace Playlist_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IDatabase, LocalDatabase>();
+            services.AddSingleton<ISpotifyService, SpotifyService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

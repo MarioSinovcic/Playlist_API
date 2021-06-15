@@ -1,47 +1,33 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Playlist_API.Behaviours;
-using SpotifyAPI.Web;
+using Playlist_API.Behaviours.Spotify;
 
 namespace Playlist_API.Controllers
 {
     [ApiController]
     public class SongController : ControllerBase
     {
-        private SpotifyClient _spotifyClient;
+        private readonly ISpotifyService _spotifyService;
+        public SongController(ISpotifyService spotifyService)
+        {
+            _spotifyService = spotifyService;
+        }
 
         [HttpGet]
         [Route("songs")]
-        public async Task<IActionResult> GetSong([FromQuery(Name = "name")] string name) //TODO: multiple params (artist, song)
+        public async Task<IActionResult> GetSongs([FromQuery(Name = "name")] string name) //TODO: multiple params (artist, song)
         {
-            try
-            {
-                _spotifyClient = TokenBehaviour.RetrieveToken();
-            }
-            catch (Exception)
-            {
-                return StatusCode(503, "Error obtaining Spotify credentials.");
-            }
+            _spotifyService.VerifyToken();
+            if (_spotifyService.TokenIsValid()) return StatusCode(503, "Error obtaining Spotify credentials.");
 
             try
             {
-                if (String.IsNullOrEmpty(name))
-                {
-                    var track = await _spotifyClient.Browse.GetCategories();
-                    return Ok(track);
-                }
-                else
-                {
-                    var request = new SearchRequest(SearchRequest.Types.Track, name);
-                    var track = await _spotifyClient.Search.Item(request);
-                    return Ok(track.Tracks);
-                }
+                var songs = await _spotifyService.GetSongsByName(name);   
+                return Ok(songs);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                //ErrorChecker.Check(e)
                 return StatusCode(500);
             }
         }
@@ -50,37 +36,19 @@ namespace Playlist_API.Controllers
         [Route("song/{genre}")]
         public async Task<IActionResult> GetRandomSong(string genre) //TODO: multiple params (artist, song)
         {
+            _spotifyService.VerifyToken();
+            if (_spotifyService.TokenIsValid()) return StatusCode(503, "Error obtaining Spotify credentials.");
+
             try
             {
-                _spotifyClient = TokenBehaviour.RetrieveToken();
+                var id = await _spotifyService.GetGenreId(genre);
+                if (id == null) return StatusCode(404, "That genre doesn't exist.");
+
+                var track = await _spotifyService.GetRandomSongByGenre(id);
+                return Ok(track);
             }
             catch (Exception)
             {
-                return StatusCode(503, "Error obtaining Spotify credentials.");
-            }
-
-            try
-            {
-                var request = new CategoriesRequest {Locale = "en_NZ"};
-                var genres = await _spotifyClient.Browse.GetCategories(request);
-                var id = genres.Categories.Items.FirstOrDefault(x => x.Name == genre)?.Id;
-
-                if (id == null)
-                {
-                    return StatusCode(404, "That genre doesn't exist. >:|");
-                }
-                
-                var playlists = await _spotifyClient.Browse.GetCategoryPlaylists(id);
-                var playlistId = playlists.Playlists.Items[0].Id;
-
-                var playlist = await _spotifyClient.Playlists.Get(playlistId);
-                var track = playlist.Tracks.Items[0].Track;
-
-                return Ok(track);
-            }
-            catch (Exception e)
-            {
-                //ErrorChecker.Check(e)
                 return StatusCode(500);
             }
         }

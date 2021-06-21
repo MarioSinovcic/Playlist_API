@@ -19,7 +19,7 @@ namespace Playlist_API.Behaviours.Spotify
             _spotifyClient = SpotifyClientHelper.RetrieveClient();
         }
 
-        public bool TokenIsValid()
+        public bool TokenIsNotValid()
         {
             return SpotifyClientHelper.TokenIsValid();
         }
@@ -32,7 +32,7 @@ namespace Playlist_API.Behaviours.Spotify
             return genres.Categories.Items!.FirstOrDefault(x => NormalisationHelper.Genre(x.Name) == NormalisationHelper.Genre(genre))?.Id;
         }
 
-        public async Task<IPlayableItem> GetRandomSongByGenre(string id)
+        public async Task<object> GetRandomSongByGenre(string id)
         {
             var playlists = await _spotifyClient.Browse.GetCategoryPlaylists(id);
             var playlistId = playlists.Playlists.Items[0].Id;

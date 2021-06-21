@@ -4,13 +4,13 @@ using System.Linq;
 using Playlist_API.Database;
 using Playlist_Service;
 
-namespace Playlist_API_Tests.Helpers
+namespace Playlist_API_Tests.Mocks
 {
-    public class TestFixtureDatabase : IDatabase
+    public class LocalDB : IDatabase
     {
         private readonly List<Playlist> _playlists;
 
-        public TestFixtureDatabase()
+        public LocalDB()
         {
             _playlists = new List<Playlist>();
             Populate(_playlists);

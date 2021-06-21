@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Playlist_API_Tests.Helpers;
+using Playlist_API_Tests.Mocks;
 using Playlist_API.Controllers;
 using Playlist_Service;
 using Xunit;
@@ -15,7 +15,7 @@ namespace Playlist_API_Tests
 
         public PlaylistControllerTests()
         {
-            var database = new TestFixtureDatabase();
+            var database = new LocalDB();
             _controller = new PlaylistController(database);
         }
         

@@ -1,8 +1,11 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using NUnit.Framework;
 using Playlist_API_Tests.Mocks;
 using Playlist_API.Behaviours.Spotify;
 using Playlist_API.Controllers;
 using Xunit;
+using Assert = Xunit.Assert;
 
 namespace Playlist_API_Tests
 {
@@ -15,15 +18,15 @@ namespace Playlist_API_Tests
             _controller = new SongController(service);
         }
         
-        [Fact]
-        public async void GetSong_WithInvalidToken_ShouldReturn503()
+        [Test]
+        public void GetSong_WithInvalidToken_ShouldReturn503()
         { 
             //Arrange
             var spotifyClient = new NullSpotifyClient(true);
             SetupController(spotifyClient);
 
             //Act
-            var result = await _controller.GetRandomSong("") as ObjectResult;
+            var result = _controller.GetRandomSong("").Result as ObjectResult;
             
             //Assert
             Assert.NotNull(result);
@@ -31,44 +34,44 @@ namespace Playlist_API_Tests
         }      
         
 
-        [Fact]
-        public async void GetSong_WithInvalidGenre_ShouldReturn404()
+        [Test]
+        public void GetSong_WithInvalidGenre_ShouldReturn404()
         { 
             //Arrange
             var spotifyClient = new LocalSpotifyClient(false);
             SetupController(spotifyClient);
 
             //Act
-            var result = await _controller.GetRandomSong("Techno") as ObjectResult;
+            var result = _controller.GetRandomSong("Techno").Result as ObjectResult;
             
             //Assert
             Assert.NotNull(result);
             Assert.Equal(404,result.StatusCode);
         }      
         
-        [Fact]
-        public async void GetSong_WithValidGenre_ShouldReturn200()
+        [Test]
+        public void GetSong_WithValidGenre_ShouldReturn200()
         { 
             //Arrange
             var spotifyClient = new LocalSpotifyClient(false);
             SetupController(spotifyClient);
             
             //Act
-            var result = await _controller.GetRandomSong("Hip Hop") as ObjectResult;
+            var result = _controller.GetRandomSong("Hip Hop").Result as ObjectResult;
             
             //Assert
             Assert.Equal(200,result.StatusCode);
         }
         
-        [Fact]
-        public async void GetSong_WithValidGenre_ShouldReturnCorrectBody()
+        [Test]
+        public void GetSong_WithValidGenre_ShouldReturnCorrectBody()
         { 
             //Arrange
             var spotifyClient = new LocalSpotifyClient(false);
             SetupController(spotifyClient);
             
             //Act
-            var result = await _controller.GetRandomSong("Hip Hop") as ObjectResult;
+            var result = _controller.GetRandomSong("Hip Hop").Result as ObjectResult;
             
             //Assert
             Assert.Equal("Example Song",result.Value);

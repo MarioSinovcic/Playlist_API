@@ -2,10 +2,11 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using NUnit.Framework;
 using Playlist_API_Tests.Mocks;
 using Playlist_API.Controllers;
 using Playlist_Service;
-using Xunit;
+using Assert = Xunit.Assert;
 
 namespace Playlist_API_Tests
 {
@@ -20,7 +21,7 @@ namespace Playlist_API_Tests
         }
         
 
-        [Fact]
+        [Test]
         public async Task PlaylistGet_WithOutParameters_ShouldGetAllSongsFromThePlaylist()
         { 
             //Arrange //Act

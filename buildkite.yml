@@ -1,6 +1,25 @@
 ---
 steps:
-  - label: 'do not panic :cherry_blossom::whale:'
-    command: 'echo hello, engineer'
+  - label: ":white_check_mark: Run Unit Tests"
+    command: scripts/unit_tests.sh
+    agents:
+      queue: fma-dev
+      
+  - label: ":white_check_mark: Run Integration Tests"
+    command: scripts/integration_tests.sh
+    agents:
+      queue: fma-dev
+
+  - wait
+
+  - label: ":white_check_mark: Build and Push"
+    command: scripts/build.sh
+    agents:
+      queue: fma-dev
+      
+  - block: Deploy?
+
+  - label: ":whale: Deploy the API"
+    command: scripts/deploy.sh
     agents:
       queue: fma-dev

@@ -1,10 +1,10 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 
 ARG HOST_URL="https://sonarqube.svc.platform.myob.com/"
-ARG PROJECT_KEY
-ARG PROJECT_NAME
-ARG TOKEN
-ARG SOLUTION_FILE
+ARG PROJECT_KEY="sonar-proteges:playlist-api"
+ARG PROJECT_NAME="mario-playlist-api"
+ARG TOKEN="84ba31da69a666c460c59a3dccc60243bb86d3db"
+ARG SOLUTION_FILE="../Playlist_API.sln"
 
 COPY . ./
 

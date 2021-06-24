@@ -11,7 +11,7 @@ function ssm-get {
 PROJECT_KEY="sonar-proteges:playlist-api"
 PROJECT_NAME="mario-playlist-api"
 TOKEN=$(ssm-get "/etc/tokens/sonarqube")
-SOLUTION_FILE="./Playlist_API.sln"
+SOLUTION_FILE="../Playlist_API.sln"
 
 docker build \
   -f .sonarqube/Dockerfile \

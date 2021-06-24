@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
-buildtag="playlist-api"
+source "./common.sh"
 
-docker build -f $(dirname $0)/../Dockerfile.build -t $buildtag $(dirname $0)/..
+docker build -f $(dirname $0)/../Dockerfile.build -t "$imagetag" $(dirname $0)/..
+
+
+
+docker push "$imagetag"

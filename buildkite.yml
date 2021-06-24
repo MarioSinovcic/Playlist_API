@@ -14,6 +14,9 @@ steps:
 
   - label: ":white_check_mark: Build and Push"
     command: scripts/build.sh
+    plugins:
+      - ecr#v2.3.0:
+          login: true
     agents:
       queue: fma-dev
       

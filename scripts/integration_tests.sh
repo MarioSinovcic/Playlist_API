@@ -2,6 +2,6 @@
 
 buildtag="playlist-api-tests"
 
-docker build -f ./Dockerfile.test -t $buildtag $(dirname $0)/..
+docker build -f ./Dockerfile.test -t "$buildtag" $(dirname $0)/..
 
-docker run --rm -it $buildtag dotnet test Playlist_API_Tests
+docker run --rm -it "$buildtag" dotnet test Playlist_API_Tests

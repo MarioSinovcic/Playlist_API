@@ -1,12 +1,5 @@
 ---
 steps:
-  - label: ":sonarqube: SonarQube Scan"
-    command: .sonarqube/scan.sh
-    agents:
-      queue: fma-dev
-
-  - wait
-    
   - label: ":white_check_mark: Run Unit Tests"
     command: scripts/unit_tests.sh
     agents:

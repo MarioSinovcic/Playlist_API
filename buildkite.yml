@@ -12,7 +12,7 @@ steps:
 
   - wait
 
-  - label: ":white_check_mark: Build and Push"
+  - label: ":shrek: Build and Push"
     command: scripts/build.sh
     plugins:
       - ecr#v2.3.0:

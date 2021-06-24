@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
+cd "$(dirname $0)"
+
 source "./common.sh"
 
-docker build -f $(dirname $0)/../Dockerfile.build -t "$imagetag" $(dirname $0)/..
-
-
+docker build -f ../Dockerfile.build -t "$imagetag" ..
 
 docker push "$imagetag"

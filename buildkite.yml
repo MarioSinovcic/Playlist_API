@@ -13,7 +13,7 @@ steps:
   - label: ":sonarqube: SonarQube scan"
     command: .sonarqube/scan.sh
     agents:
-      queue: appsec-dev-dflt
+      queue: fma-dev
 
   - wait
 

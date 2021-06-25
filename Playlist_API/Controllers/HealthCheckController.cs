@@ -13,7 +13,7 @@ namespace Playlist_API.Controllers
         {
             try
             {
-                return Ok();
+                return Ok("Ok"); //TODO: look into what to return
             }
             catch (Exception)
             {

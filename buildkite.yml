@@ -9,6 +9,11 @@ steps:
     command: scripts/integration_tests.sh
     agents:
       queue: fma-dev
+      
+  - label: ":sonarqube: SonarQube scan"
+    command: .sonarqube/scan.sh
+    agents:
+      queue: appsec-dev-dflt
 
   - wait
 

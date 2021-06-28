@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Playlist_API.Database;
@@ -48,18 +47,18 @@ namespace Playlist_API.Controllers
 
         [HttpGet]
         [Route("playlists")]
-        public async Task<IActionResult> GetPlaylists()
+        public ObjectResult GetPlaylists()
         {
             try
             {
                 var playlists = _database.GetPlaylists();
                 if (playlists.Count == 0) return NotFound("No playlists have been made yet.");
                 
-                return Ok(JsonConvert.SerializeObject(playlists));
+                return StatusCode(200, JsonConvert.SerializeObject(playlists));
             }
             catch (Exception)
             {
-                return StatusCode(500);
+                return StatusCode(500, "Error retrieving playlists.");
             }
         }
         

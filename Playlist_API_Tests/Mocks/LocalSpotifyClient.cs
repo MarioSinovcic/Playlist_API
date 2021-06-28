@@ -35,7 +35,7 @@ namespace Playlist_API_Tests.Mocks
             return (from kvp in _localSpotifyData where kvp.Value == genre select kvp.Key).FirstOrDefault();
         }
 
-        public async Task<object> GetRandomSongByGenre(string genre)
+        public async Task<object> GetRandomSongByGenre(string genreId)
         {
             return "Example Song";
         }

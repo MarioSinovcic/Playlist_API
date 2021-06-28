@@ -25,7 +25,7 @@ namespace Playlist_API_Tests.Mocks
             return null;
         }
 
-        public Task<object> GetRandomSongByGenre(string genre)
+        public Task<object> GetRandomSongByGenre(string genreId)
         {
             return null;
         }

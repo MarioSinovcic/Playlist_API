@@ -1,10 +1,8 @@
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 using Playlist_API_Tests.Mocks;
 using Playlist_API.Behaviours.Spotify;
 using Playlist_API.Controllers;
-using Xunit;
 using Assert = Xunit.Assert;
 
 namespace Playlist_API_Tests

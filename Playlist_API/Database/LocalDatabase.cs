@@ -7,12 +7,12 @@ namespace Playlist_API.Database
 {
     public class LocalDatabase : IDatabase
     {
-        private List<Playlist> _playlists;
+        private readonly List<Playlist> _playlists;
 
         public LocalDatabase()
         {
             _playlists = new List<Playlist>();
-            Populate(_playlists);
+            Populate();
         }
 
         public void CreatePlaylist(Playlist playlist)
@@ -47,7 +47,7 @@ namespace Playlist_API.Database
             _playlists.RemoveAll(x => x.Id == id);
         }
         
-        private void Populate(List<Playlist> playlists)
+        private void Populate()
         {
             var song1 = new Song(3423214, "George Micheal", "Careless Whisper", DateTime.Now,
                 "https://www.youtube.com/watch?v=izGwDsrQ1eQ");

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using RestSharp.Serialization.Json;
+using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace Playlist_API.Controllers
 {
@@ -9,15 +12,17 @@ namespace Playlist_API.Controllers
     {
         [HttpGet]
         [Route("healthcheck")]
-        public async Task<IActionResult> GetHealthCheck() 
+        public ObjectResult GetHealthCheck() 
         {
             try
             {
-                return Ok("Ok"); //TODO: look into what to return
+                var message = new HealthCheckMessage("mario-playlist-api", "UP", "1.0.2");
+                var json = JsonConvert.SerializeObject(message);
+                return StatusCode(200, json); 
             }
             catch (Exception)
             {
-                return StatusCode(500);
+                return StatusCode(500, "System down.");
             }
         }
     }

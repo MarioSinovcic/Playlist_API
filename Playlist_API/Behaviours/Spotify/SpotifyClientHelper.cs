@@ -32,7 +32,7 @@ namespace Playlist_API.Behaviours.Spotify
 
         public static bool TokenIsValid()
         {
-            return (_token is null || _token.IsExpired) && false;
+            return _token is null || _token.IsExpired;
         }
     }
 }

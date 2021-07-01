@@ -1,13 +1,8 @@
 # This is the name of your Github action "workflow"
 name: Security Scans
 
-on:
-  # run this workflow when the pull request meets one of these triggers
-  pull_request:
-    types: [assigned, opened, edited, reopened] 
-    
-  # allows you to run the workflow by pushing a button
-  workflow_dispatch: 
+# run this workflow when the code is pushed
+on: push
 
 jobs:
   trufflehog-scan:

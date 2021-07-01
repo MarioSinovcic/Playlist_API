@@ -23,7 +23,7 @@ namespace Playlist_API_Tests.Mocks
             _tokenValidity = tokenValidity;
         }
 
-        public void VerifyToken() { }
+        public async Task VerifyToken() { }
 
         public bool TokenIsNotValid()
         {

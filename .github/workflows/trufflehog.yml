@@ -1,18 +1,27 @@
-trufflehog-scan:
-  runs-on: ubuntu-latest
+# This is the name of your Github action "workflow"
+name: Security Scans
 
-  steps:
-    # checkout local repo
-    - uses: actions/checkout@v2
+on:
+  # run this workflow when the pull request meets one of these triggers
+  pull_request:
+    types: [assigned, opened, edited, reopened] 
+    
+  # allows you to run the workflow by pushing a button
+  workflow_dispatch: 
 
-      # checkout appsec private action repo
-    - uses: actions/checkout@v2
-      with:
-        repository: myob-ops/github-actions
-        ref: main
-        token: ${{ secrets.APPSEC_ACTIONS_TOKEN }} # stored in GitHub secrets
-        path: .github/actions
-
-        # run trufflehog
-    - name: Trufflehog Actions Scan
-      uses: ./.github/actions/trufflehog
+jobs:
+  trufflehog-scan:
+    runs-on: ubuntu-latest
+    steps:
+            # checkout local repo
+      - uses: actions/checkout@v2
+            # checkout appsec private actions repo
+      - uses: actions/checkout@v2
+        with:
+          repository: myob-ops/github-actions
+          ref: main
+          token: ${{ secrets.APPSEC_ACTIONS_TOKEN }} # stored in GitHub secrets
+          path: .github/actions
+        
+      - name: Trufflehog Actions Scan
+        uses: ./.github/actions/trufflehog

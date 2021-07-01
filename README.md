@@ -1,7 +1,7 @@
 # Playlist-API
  
-[![Build status](https://badge.buildkite.com/b7613a89e7b9def6b1c8611c5262a9755dd1a3e7b4905a406f.svg)](https://buildkite.com/myob/mario-playlist-api)
-
+[![Buildkite status](https://badge.buildkite.com/b7613a89e7b9def6b1c8611c5262a9755dd1a3e7b4905a406f.svg)](https://buildkite.com/myob/mario-playlist-api)
+[![Trufflehog status](https://github.com/myob-fma/mario-playlist-api/actions/workflows/trufflehog.yml/badge.svg)](https://github.com/myob-fma/mario-playlist-api/actions/workflows/trufflehog.yml)
 
 
 # Endpoints

@@ -1,0 +1,18 @@
+trufflehog-scan:
+  runs-on: ubuntu-latest
+
+  steps:
+    # checkout local repo
+    - uses: actions/checkout@v2
+
+      # checkout appsec private action repo
+    - uses: actions/checkout@v2
+      with:
+        repository: myob-ops/github-actions
+        ref: main
+        token: ${{ secrets.APPSEC_ACTIONS_TOKEN }} # stored in GitHub secrets
+        path: .github/actions
+
+        # run trufflehog
+    - name: Trufflehog Actions Scan
+      uses: ./.github/actions/trufflehog

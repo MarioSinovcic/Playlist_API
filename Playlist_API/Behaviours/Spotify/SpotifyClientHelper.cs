@@ -1,3 +1,6 @@
+using System.Threading.Tasks;
+using Amazon.SimpleSystemsManagement;
+using Amazon.SimpleSystemsManagement.Model;
 using SpotifyAPI.Web;
 using SpotifyWebApi.Auth;
 using SpotifyWebApi.Model.Auth;
@@ -6,28 +9,47 @@ namespace Playlist_API.Behaviours.Spotify
 {
     public static class SpotifyClientHelper
     {
-        private const string SpotifyClientId = "cc67f1c071694b3eabbf884144c558fe";
-        private const string SpotifyClientSecret = "1330ca78d28844cea66c08c61cbeb1ae";
+        private static string _spotifyClientId;
+        private static string _spotifyClientSecret;
 
         private static Token _token;
 
-        private static void GenerateToken()
+        private static async Task GenerateToken()
         {
+            var ssmClient = new AmazonSimpleSystemsManagementClient();
+
+            var response = await ssmClient.GetParameterAsync(new GetParameterRequest
+            {
+                Name = "/mario/spotify-client-id",
+                WithDecryption = true
+            });
+            
+            _spotifyClientId = response.Parameter.Value; 
+
+            
+            response = await ssmClient.GetParameterAsync(new GetParameterRequest
+            {
+                Name = "/mario/spotify-client-secret",
+                WithDecryption = true
+            });
+            
+            _spotifyClientSecret = response.Parameter.Value;
+
             _token = ClientCredentials.GetToken(new AuthParameters
                 {
-                    ClientId = SpotifyClientId,
-                    ClientSecret = SpotifyClientSecret,
+                    ClientId = _spotifyClientId,
+                    ClientSecret = _spotifyClientSecret,
                 });
         }
 
 
-        public static SpotifyClient RetrieveClient()
+        public static async Task<SpotifyClient> RetrieveClient()
         {
             if (_token is null || _token.IsExpired)
             {
-                GenerateToken();
+                await GenerateToken();
             }
-            return new SpotifyClient(_token.AccessToken);
+            return new SpotifyClient(_token?.AccessToken!);
         }
 
         public static bool TokenIsValid()

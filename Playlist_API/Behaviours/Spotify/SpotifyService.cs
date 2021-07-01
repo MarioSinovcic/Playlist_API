@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using SpotifyAPI.Web;
@@ -14,9 +13,9 @@ namespace Playlist_API.Behaviours.Spotify
             VerifyToken();
         }
         
-        public void VerifyToken()
+        public async Task VerifyToken()
         {
-            _spotifyClient = SpotifyClientHelper.RetrieveClient();
+            _spotifyClient = await SpotifyClientHelper.RetrieveClient();
         }
 
         public bool TokenIsNotValid()

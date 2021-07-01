@@ -19,7 +19,7 @@ namespace Playlist_API.Controllers
         [Route("songs")]
         public async Task<IActionResult> GetSongs([FromQuery(Name = "name")] string name) 
         {
-            _spotifyService.VerifyToken();
+            await _spotifyService.VerifyToken();
             if (_spotifyService.TokenIsNotValid()) return StatusCode(503, "Error obtaining Spotify credentials.");
 
             try
@@ -37,7 +37,7 @@ namespace Playlist_API.Controllers
         [Route("song/{genre}")]
         public async Task<IActionResult> GetRandomSong(string genre)
         {
-            _spotifyService.VerifyToken();
+            await _spotifyService.VerifyToken();
             if (_spotifyService.TokenIsNotValid()) return StatusCode(503, "Error obtaining Spotify credentials.");
 
             try

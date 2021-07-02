@@ -13,7 +13,7 @@ Parameters:
   Image:
     Type: String
     Default: 274387265859.dkr.ecr.ap-southeast-2.amazonaws.com/mario/playlist-api:latest
-  ServiceName:
+  ServiceName:z
     Type: String
     # update with the name of the service
     Default: PlaylistApi
@@ -103,6 +103,13 @@ Resources:
             Action: 'sts:AssumeRole'
       ManagedPolicyArns:
         - 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'
+      Policies:
+        - Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "ssm:GetParameter"
+                Resource: !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/mario/spotify-api/*'
   # A role for the containers
   TaskRole:
     Type: AWS::IAM::Role

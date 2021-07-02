@@ -20,7 +20,7 @@ namespace Playlist_API.Behaviours.Spotify
 
             var response = await ssmClient.GetParameterAsync(new GetParameterRequest
             {
-                Name = "/mario/spotify-client-id",
+                Name = "/mario/spotify-api/spotify-client-id",
                 WithDecryption = true
             });
             
@@ -29,7 +29,7 @@ namespace Playlist_API.Behaviours.Spotify
             
             response = await ssmClient.GetParameterAsync(new GetParameterRequest
             {
-                Name = "/mario/spotify-client-secret",
+                Name = "/mario/spotify-api/spotify-client-secret",
                 WithDecryption = true
             });
             

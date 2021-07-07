@@ -25,16 +25,18 @@ steps:
     agents:
       queue: fma-dev
       
-  - block: Deploy?
-
-  - label: ":whale: Deploy the API to prod"
-    command: scripts/deploy.sh prod
-    branches: 'main'
-    agents:
-      queue: fma-dev
+  - wait
 
   - label: ":whale: Deploy the API to dev"
-    command: scripts/deploy.sh dev
+    command: scripts/deploy.sh
     branches: '!main'
     agents:
       queue: fma-dev
+      
+  - block: Deploy?
+
+  - label: ":whale: Deploy the API to prod"
+    command: scripts/deploy.sh
+    branches: 'main'
+    agents:
+      queue: fma-margaret-lab

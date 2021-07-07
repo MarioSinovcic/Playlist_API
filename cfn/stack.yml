@@ -3,19 +3,15 @@ Description: An example CloudFormation template for Fargate.
 Parameters:
   VPC:
     Type: AWS::EC2::VPC::Id
-    Default: vpc-8aefeced
   SubnetA:
     Type: AWS::EC2::Subnet::Id
-    Default: subnet-5818f33e
   SubnetB:
     Type: AWS::EC2::Subnet::Id
-    Default: subnet-6df91d25
   Image:
     Type: String
     Default: 274387265859.dkr.ecr.ap-southeast-2.amazonaws.com/mario/playlist-api:latest
-  ServiceName:z
+  ServiceName:
     Type: String
-    # update with the name of the service
     Default: PlaylistApi
   ContainerPort:
     Type: Number
@@ -23,15 +19,15 @@ Parameters:
   LoadBalancerPort:
     Type: Number
     Default: 443
-  HostedZoneName:
-    Type: String
-    Default: fma.lab.myobdev.com
-  HostedZoneId:
-    Type: String
-    Default: Z03276602ECCECZUV6V61
-  Subdomain:
-    Type: String
-    Default: mario
+#  HostedZoneName:
+#    Type: String
+#    Default: fma.lab.myobdev.com
+#  HostedZoneId:
+#    Type: String
+#    Default: Z03276602ECCECZUV6V61
+#  Subdomain:
+#    Type: String
+#    Default: mario
   # for autoscaling
   #MinContainers:
   #  Type: Number
@@ -49,6 +45,30 @@ Resources:
     Type: AWS::ECS::Cluster
     Properties:
       ClusterName: !Join ['', [!Ref ServiceName, Cluster]]
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.8.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: "vpc-mario"
+  PubSubnetA:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.8.0.0/24
+      AvailabilityZone: ap-southeast-2a
+      VpcId: !Ref Vpc
+      MapPublicIpOnLaunch: true
+
+    PubSubnetB:
+      Type: AWS::EC2::Subnet
+      Properties:
+        CidrBlock: 10.8.1.0/24
+        AvailabilityZone: ap-southeast-2b
+        VpcId: !Ref Vpc
+        MapPublicIpOnLaunch: true
   TaskDefinition:
     Type: AWS::ECS::TaskDefinition
     # Makes sure the log group is created before it is used.

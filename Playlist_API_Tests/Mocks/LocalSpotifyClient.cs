@@ -44,5 +44,10 @@ namespace Playlist_API_Tests.Mocks
         {
             return null;
         }
+
+        public Task<object> GetSongs()
+        {
+            return null;
+        }
     }
 }

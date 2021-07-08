@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: An example CloudFormation template for Fargate.
+Description: Cloudformation for the Playlist API
 Parameters:
   VPC:
     Type: AWS::EC2::VPC::Id

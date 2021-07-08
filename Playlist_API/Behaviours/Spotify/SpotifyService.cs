@@ -53,5 +53,10 @@ namespace Playlist_API.Behaviours.Spotify
             var track = await _spotifyClient.Search.Item(request);
             return track.Tracks;
         }
+
+        public async Task<object> GetSongs()
+        {
+            return await _spotifyClient.Browse.GetCategories();
+        }
     }
 }

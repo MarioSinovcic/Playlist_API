@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Playlist_API.Behaviours.Spotify;
 
@@ -21,9 +21,18 @@ namespace Playlist_API.Controllers
         {
             await _spotifyService.VerifyToken();
             if (_spotifyService.TokenIsNotValid()) return StatusCode(503, "Error obtaining Spotify credentials.");
-
+            
             try
             {
+                if (name == null)
+                {
+                    var songList = await _spotifyService.GetSongs();
+                    return Ok(songList);
+                }
+                
+                var rgx = new Regex("^[0-9A-Za-z ]+$");
+                if (!rgx.IsMatch(name)) return StatusCode(400, "Song name specified is invalid.");
+
                 var songs = await _spotifyService.GetSongsByName(name);
                 return Ok(songs);
             }
@@ -46,6 +55,9 @@ namespace Playlist_API.Controllers
                 if (id == null) 
                     return StatusCode(404, "That genre doesn't exist.");
 
+                var rgx = new Regex("^[0-9A-Za-z ]+$");
+                if (!rgx.IsMatch(genre)) return StatusCode(400, "Genre specified is invalid.");
+                
                 var track = await _spotifyService.GetRandomSongByGenre(id);
                 return Ok(track);
             }

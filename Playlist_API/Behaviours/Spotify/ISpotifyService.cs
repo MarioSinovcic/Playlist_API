@@ -12,5 +12,6 @@ namespace Playlist_API.Behaviours.Spotify
         public Task<object> GetRandomSongByGenre(string genreId);
 
         public Task<object> GetSongsByName(string name);
+        public Task<object> GetSongs();
     }
 }

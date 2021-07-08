@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using RestSharp.Serialization.Json;
-using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace Playlist_API.Controllers
 {
@@ -22,7 +19,9 @@ namespace Playlist_API.Controllers
             }
             catch (Exception)
             {
-                return StatusCode(500, "System down.");
+                var message = new HealthCheckMessage("mario-playlist-api", "DOWN", null);
+                var json = JsonConvert.SerializeObject(message);
+                return StatusCode(500, json);
             }
         }
     }

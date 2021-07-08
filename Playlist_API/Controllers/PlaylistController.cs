@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Playlist_API.Database;
@@ -34,6 +35,11 @@ namespace Playlist_API.Controllers
         [Route("playlists/{id}")]
         public IActionResult UpdatePlaylist([FromRoute]int id, Playlist playlist)
         {
+            var rgx = new Regex("^[0-9A-Za-z]+$");
+            if (!rgx.IsMatch(id.ToString())) return StatusCode(400, "ID specified is invalid.");
+            
+            
+
             try
             {
                 _database.UpdatePlaylist(id, playlist);
@@ -64,8 +70,11 @@ namespace Playlist_API.Controllers
         
         [HttpGet]
         [Route("playlists/{id}")]
-        public IActionResult GetPlaylist([FromRoute]int id) //change this later
+        public IActionResult GetPlaylist([FromRoute]int id) 
         {
+            var rgx = new Regex("^[0-9A-Za-z]+$");
+            if (!rgx.IsMatch(id.ToString())) return StatusCode(400, "ID specified is invalid.");
+
             try
             {
                 var playlist = _database.GetPlaylist(id);
@@ -81,6 +90,9 @@ namespace Playlist_API.Controllers
         [Route("playlists/{id}")]
         public IActionResult DeletePlaylist([FromRoute]int id)
         {
+            var rgx = new Regex("^[0-9A-Za-z]+$");
+            if (!rgx.IsMatch(id.ToString())) return StatusCode(400, "ID specified is invalid.");
+
             try
             {
                 _database.DeletePlaylist(id);

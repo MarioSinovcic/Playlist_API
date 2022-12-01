@@ -1,0 +1,42 @@
+---
+steps:
+  - label: ":white_check_mark: Run Unit Tests"
+    command: scripts/unit_tests.sh
+    agents:
+      queue: vertical-dev
+      
+  - label: ":white_check_mark: Run Integration Tests"
+    command: scripts/integration_tests.sh
+    agents:
+      queue: vertical-dev
+      
+  - label: ":sonarqube: SonarQube scan"
+    command: .sonarqube/scan.sh
+    agents:
+      queue: vertical-dev
+
+  - wait
+
+  - label: ":shrek: Build and Push"
+    command: scripts/build.sh
+    plugins:
+      - ecr#v2.3.0:
+          login: true
+    agents:
+      queue: vertical-dev
+      
+  - wait
+
+  - label: ":whale: Deploy the API to dev"
+    command: scripts/deploy.sh
+    branches: '!main'
+    agents:
+      queue: vertical-dev
+      
+  - block: Deploy?
+
+  - label: ":whale: Deploy the API to prod"
+    command: scripts/deploy.sh
+    branches: 'main'
+    agents:
+      queue: vertical-margaret-lab
